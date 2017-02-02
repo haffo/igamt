@@ -563,6 +563,12 @@ li.active > a{
     color:black;
 }
 
+.code-tooltip, .code-tooltip > * {
+    background-color: white;
+    color:black;
+    z-index: 1030;
+}
+
 .form-group .checkbox label, .form-group .radio label, .form-group label {
      color: black;
  }

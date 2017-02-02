@@ -297,7 +297,8 @@ angular.module('igl').controller('SegmentListCtrl', function($scope, $rootScope,
         var modalInstance = $modal.open({
             templateUrl: 'editVSModal.html',
             controller: 'EditVSCtrl',
-            windowClass: 'edit-VS-modal',
+            size: 'lg',
+            windowClass: 'valueset-binding-modal',
             resolve: {
 
                 valueSets: function() {
@@ -1886,6 +1887,7 @@ angular.module('igl').controller('EditVSCtrl', function($scope, $modalInstance, 
     console.log(field);
     $scope.vsChanged = false;
     $scope.field = field;
+    $scope.valueSets = valueSets;
     if (field.attributes) {
         if (field.attributes.tables && field.attributes.tables.length > 0) {
             $scope.vs = angular.copy(field.attributes.tables);
@@ -1901,8 +1903,6 @@ angular.module('igl').controller('EditVSCtrl', function($scope, $modalInstance, 
     }
 
     $scope.loadVS = function($query) {
-
-
         return valueSets.filter(function(table) {
             return table.bindingIdentifier.toLowerCase().indexOf($query.toLowerCase()) != -1;
         });
